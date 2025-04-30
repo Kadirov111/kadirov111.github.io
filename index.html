@@ -1,142 +1,756 @@
 <!DOCTYPE html>
 <html lang="uz">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Kadirov Muhammadaziz</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Georgia', serif;
-      background: linear-gradient(to right, #f0f4ff, #e2e8f0);
-      color: #222;
-      animation: fadeIn 2s ease-in;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kadirov Muhammadaziz | Python Developer</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <style>
+        :root {
+            --primary: #4361ee;
+            --secondary: #3f37c9;
+            --accent: #4cc9f0;
+            --dark: #2b2d42;
+            --light: #f8f9fa;
+            --gradient-1: linear-gradient(135deg, #4361ee, #3a0ca3);
+            --gradient-2: linear-gradient(135deg, #4cc9f0, #4361ee);
+        }
 
-    .container {
-      max-width: 850px;
-      margin: 50px auto;
-      padding: 30px;
-      background: #fff;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-      border-radius: 16px;
-      animation: slideIn 1.5s ease-out;
-      transition: all 0.3s ease;
-    }
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light);
+            color: var(--dark);
+            overflow-x: hidden;
+        }
 
-    header {
-      text-align: center;
-      margin-bottom: 40px;
-    }
+        /* Scrollbar style */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
 
-    h1 {
-      font-size: 42px;
-      margin: 0;
-      color: #2c3e50;
-      transition: color 0.4s ease;
-    }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
 
-    h1:hover {
-      color: #0077b6;
-    }
+        ::-webkit-scrollbar-thumb {
+            background: var(--primary);
+            border-radius: 5px;
+        }
 
-    h2 {
-      font-size: 24px;
-      color: #00507a;
-      border-left: 5px solid #0077b6;
-      padding-left: 10px;
-      margin-top: 30px;
-    }
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--secondary);
+        }
 
-    p, li {
-      font-size: 18px;
-      line-height: 1.6;
-    }
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.95) !important;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
 
-    a {
-      color: #0077b6;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s ease;
-    }
+        .navbar-brand {
+            font-weight: 700;
+            color: var(--primary) !important;
+        }
 
-    a:hover {
-      color: #023e8a;
-    }
+        .nav-link {
+            color: var(--dark) !important;
+            font-weight: 500;
+            margin: 0 10px;
+            position: relative;
+        }
 
-    ul {
-      list-style-type: none;
-      padding: 0;
-    }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            background: var(--gradient-1);
+            bottom: 0;
+            left: 0;
+            transition: width 0.3s ease;
+        }
 
-    li::before {
-      content: "✔";
-      color: #0077b6;
-      margin-right: 10px;
-    }
+        .nav-link:hover::after {
+            width: 100%;
+        }
 
-    footer {
-      text-align: center;
-      margin-top: 50px;
-      font-size: 15px;
-      color: #555;
-      opacity: 0.7;
-      transition: opacity 0.4s ease;
-    }
+        /* Header */
+        header {
+            background: var(--gradient-1);
+            color: white;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
 
-    footer:hover {
-      opacity: 1;
-    }
+        .header-content {
+            z-index: 2;
+            position: relative;
+        }
 
-    /* Animatsiyalar */
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
+        header h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
 
-    @keyframes slideIn {
-      from {
-        opacity: 0;
-        transform: translateY(40px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
-  </style>
+        header p {
+            font-size: 1.5rem;
+            font-weight: 300;
+            margin-bottom: 2rem;
+        }
+
+        .header-btn {
+            background: white;
+            color: var(--primary);
+            font-weight: 600;
+            padding: 12px 30px;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            border: none;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            text-decoration: none;
+        }
+
+        .header-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+            color: var(--secondary);
+        }
+
+        /* Animated background */
+        .animated-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .animated-bg span {
+            position: absolute;
+            display: block;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            animation: animate 25s linear infinite;
+        }
+
+        @keyframes animate {
+            0% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 1;
+                border-radius: 0;
+            }
+            100% {
+                transform: translateY(-1000px) rotate(720deg);
+                opacity: 0;
+                border-radius: 50%;
+            }
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+            padding-bottom: 20px;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            left: 50%;
+            bottom: 0;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background: var(--gradient-2);
+        }
+
+        /* Cards */
+        .card {
+            border: none;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            margin-bottom: 30px;
+            transition: all 0.3s ease;
+            overflow: hidden;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+        }
+
+        .card-img-top {
+            transition: all 0.5s ease;
+        }
+
+        .card:hover .card-img-top {
+            transform: scale(1.1);
+        }
+
+        .card-body {
+            padding: 30px;
+        }
+
+        .card-title {
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .btn-primary {
+            background: var(--gradient-1);
+            border: none;
+            border-radius: 50px;
+            padding: 10px 25px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(67, 97, 238, 0.4);
+        }
+
+        /* About section */
+        .about-img {
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .about-text {
+            padding: 20px;
+        }
+
+        /* Social links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-item {
+            margin: 10px 15px;
+            transition: all 0.3s ease;
+        }
+
+        .social-item a {
+            display: flex;
+            align-items: center;
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            padding: 10px 20px;
+            border-radius: 10px;
+            background: white;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .social-item a:hover {
+            transform: translateY(-5px);
+            color: var(--primary);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        }
+
+        .social-item i {
+            font-size: 1.5rem;
+            margin-right: 10px;
+        }
+
+        /* Contact form */
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        .form-control {
+            border-radius: 10px;
+            padding: 12px 15px;
+            margin-bottom: 20px;
+            border: 1px solid #e1e5ea;
+            transition: all 0.3s ease;
+        }
+
+        .form-control:focus {
+            box-shadow: 0 0 0 3px rgba(67, 97, 238, 0.2);
+            border-color: var(--primary);
+        }
+
+        /* Skills section */
+        .skill-item {
+            margin-bottom: 30px;
+        }
+
+        .skill-name {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            font-weight: 600;
+        }
+
+        .skill-bar {
+            height: 10px;
+            background: #e1e5ea;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            width: 0;
+            border-radius: 10px;
+            background: var(--gradient-2);
+            transition: width 1.5s ease;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--gradient-1);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+            position: relative;
+        }
+
+        footer p {
+            margin-bottom: 0;
+            font-weight: 300;
+        }
+
+        .go-top {
+            position: absolute;
+            right: 30px;
+            bottom: 30px;
+            width: 50px;
+            height: 50px;
+            background: white;
+            color: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .go-top:hover {
+            transform: translateY(-5px);
+            color: var(--secondary);
+        }
+
+        /* Custom animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .fade-in.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: 1.2rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <body>
-  <div class="container">
-    <header>
-      <h1>Kadirov Muhammadaziz</h1>
-      <p>247-maktab o‘quvchisi | Python Developer @ Astrum IT Academy</p>
-    </header>
 
-    <section>
-      <h2>Men haqimda</h2>
-      <p>Men Kadirov Muhammadaziz, 247-maktabda o‘qiyman. Hozirda Astrum IT Academy’da Python Developer yo‘nalishida tahsil olyapman. Django, DRF, PostgreSQL, HTML, CSS va boshqa texnologiyalarni amaliyotda qo‘llamoqdaman.</p>
-    </section>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+    <div class="container">
+        <a class="navbar-brand" href="#">K.Muhammadaziz</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="#about">Men haqimda</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#skills">Ko'nikmalar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#projects">Loyihalar</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#contact">Aloqa</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
 
-    <section>
-      <h2>Amaliyot loyiham</h2>
-      <p><a href="https://github.com/Kadirov111/FitLife.git" target="_blank">👉 FitLife GitHub Repository</a></p>
-    </section>
+<!-- Header -->
+<header>
+    <div class="animated-bg">
+        <span style="top: 20%; left: 10%; width: 80px; height: 80px; animation-delay: 0s; animation-duration: 18s;"></span>
+        <span style="top: 60%; left: 20%; width: 100px; height: 100px; animation-delay: 2s; animation-duration: 10s;"></span>
+        <span style="top: 40%; left: 40%; width: 150px; height: 150px; animation-delay: 4s; animation-duration: 16s;"></span>
+        <span style="top: 80%; left: 60%; width: 120px; height: 120px; animation-delay: 6s; animation-duration: 12s;"></span>
+        <span style="top: 10%; left: 80%; width: 70px; height: 70px; animation-delay: 8s; animation-duration: 14s;"></span>
+        <span style="top: 50%; left: 70%; width: 110px; height: 110px; animation-delay: 10s; animation-duration: 20s;"></span>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 header-content text-md-start text-center">
+                <h1 class="animate__animated animate__fadeInDown">Kadirov Muhammadaziz</h1>
+                <p class="animate__animated animate__fadeInUp animate__delay-1s">Python / Django Developer</p>
+                <a href="#contact" class="header-btn animate__animated animate__fadeInUp animate__delay-2s">Men bilan bog'laning</a>
+            </div>
+        </div>
+    </div>
+</header>
 
-    <section>
-      <h2>Kontaktlar</h2>
-      <ul>
-        <li>Instagram: @kadirov1_m</li>
-        <li>Telegram: @kadirov1_m</li>
-        <li>GitHub: <a href="https://github.com/Kadirov111" target="_blank">kadirov111</a></li>
-        <li>Email: <a href="mailto:abduvahhobovicmuhammadaziz@gmail.com">abduvahhobovicmuhammadaziz@gmail.com</a></li>
-        <li>Telefon: +998 (77) 036-73-66</li>
-      </ul>
-    </section>
+<!-- About Section -->
+<section id="about">
+    <div class="container">
+        <h2 class="section-title fade-in">🧑‍💻 Men haqimda</h2>
+        <div class="row align-items-center">
+            <div class="col-md-6 fade-in">
+                <div class="about-text">
+                    <p>Men professional Python va Django dasturchisiman. Backend tizimlar, REST API'lar va veb-ilovalar yaratishga ixtisoslashganman.</p>
+                    <p>Hozirda <strong>Astrum IT Akademiyasida</strong> Python dasturlash yo'nalishida 4-modulda o'qimoqdaman.</p>
+                    <p>Maktab manzilim: <strong>Yunusobod tumani, 247-maktab</strong>.</p>
+                    <p>Dasturlash dunyosiga qiziqishim bolaligimdan boshlangan va hozirda bu qiziqish mening kasbimga aylanganidan xursandman. Har kuni yangi bilimlar o'rganaman va o'z tajribamni oshiraman.</p>
+                </div>
+            </div>
+            <div class="col-md-6 fade-in">
+                <img src="/api/placeholder/500/500" alt="Muhammadaziz" class="img-fluid about-img">
+            </div>
+        </div>
+    </div>
+</section>
 
-    <footer>
-      &copy; 2025 Kadirov Muhammadaziz | Sayt animatsiyalar bilan yaratilgan 💻
-    </footer>
-  </div>
+<!-- Skills Section -->
+<section id="skills" style="background-color: #f9fafc;">
+    <div class="container">
+        <h2 class="section-title fade-in">💻 Ko'nikmalarim</h2>
+        <div class="row">
+            <div class="col-md-6 fade-in">
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Python</span>
+                        <span>90%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="90"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Django</span>
+                        <span>85%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="85"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>REST API</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 fade-in">
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>SQL / PostgreSQL</span>
+                        <span>75%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="75"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>HTML/CSS</span>
+                        <span>70%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="70"></div>
+                    </div>
+                </div>
+                <div class="skill-item">
+                    <div class="skill-name">
+                        <span>Git/GitHub</span>
+                        <span>80%</span>
+                    </div>
+                    <div class="skill-bar">
+                        <div class="skill-progress" data-width="80"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Social Links Section -->
+<section id="social">
+    <div class="container">
+        <h2 class="section-title fade-in">🔗 Ijtimoiy tarmoqlar</h2>
+        <div class="social-links fade-in">
+            <div class="social-item">
+                <a href="https://github.com/kadirvo111" target="_blank">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </a>
+            </div>
+            <div class="social-item">
+                <a href="https://www.linkedin.com/in/kadirvo111" target="_blank">
+                    <i class="fab fa-linkedin"></i>
+                    <span>LinkedIn</span>
+                </a>
+            </div>
+            <div class="social-item">
+                <a href="https://instagram.com/kadirov1_m" target="_blank">
+                    <i class="fab fa-instagram"></i>
+                    <span>Instagram</span>
+                </a>
+            </div>
+            <div class="social-item">
+                <a href="https://t.me/kadirov1_m" target="_blank">
+                    <i class="fab fa-telegram"></i>
+                    <span>Telegram</span>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Projects Section -->
+<section id="projects" style="background-color: #f9fafc;">
+    <div class="container">
+        <h2 class="section-title fade-in">📂 Loyihalar</h2>
+        <div class="row">
+            <div class="col-md-6 fade-in">
+                <div class="card">
+                    <div style="overflow: hidden;">
+                        <img src="/api/placeholder/600/300" class="card-img-top" alt="My-Classroom">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">My-Classroom (Django Education Platform)</h5>
+                        <p class="card-text">Ta'lim muassasalari uchun mo'ljallangan Django asosidagi platforma. O'qituvchilar uchun darslarni boshqarish, o'quvchilar uchun topshiriqlarni bajarish va natijalarni ko'rish imkoniyati.</p>
+                        <div class="d-flex mt-3">
+                            <span class="badge bg-primary me-2">Django</span>
+                            <span class="badge bg-secondary me-2">PostgreSQL</span>
+                            <span class="badge bg-success">Bootstrap</span>
+                        </div>
+                        <a href="https://github.com/kadirvo111/my-classroom" class="btn btn-primary mt-3" target="_blank">
+                            <i class="fab fa-github me-2"></i> Ko'rish
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 fade-in">
+                <div class="card">
+                    <div style="overflow: hidden;">
+                        <img src="/api/placeholder/600/300" class="card-img-top" alt="API-Shop">
+                    </div>
+                    <div class="card-body">
+                        <h5 class="card-title">REST API Shop</h5>
+                        <p class="card-text">Mahsulotlar uchun RESTful API yaratish bo'yicha loyiha. Django REST framework yordamida qurilgan, to'liq CRUD operatsiyalari, foydalanuvchi autentifikatsiya va ruxsatlarini o'z ichiga oladi.</p>
+                        <div class="d-flex mt-3">
+                            <span class="badge bg-primary me-2">Django</span>
+                            <span class="badge bg-info me-2">REST API</span>
+                            <span class="badge bg-warning">JWT Auth</span>
+                        </div>
+                        <a href="https://github.com/kadirvo111/api-shop" class="btn btn-primary mt-3" target="_blank">
+                            <i class="fab fa-github me-2"></i> Ko'rish
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Contact Section -->
+<section id="contact">
+    <div class="container">
+        <h2 class="section-title fade-in">📬 Aloqa</h2>
+        <div class="row">
+            <div class="col-md-8 mx-auto fade-in">
+                <div class="contact-form">
+                    <form action="mailto:kadirvo111@example.com" method="post" enctype="text/plain">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="name" class="form-label">Ismingiz</label>
+                                    <input type="text" class="form-control" id="name" name="name" required>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="mb-3">
+                                    <label for="email" class="form-label">Elektron pochta</label>
+                                    <input type="email" class="form-control" id="email" name="email" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="subject" class="form-label">Mavzu</label>
+                            <input type="text" class="form-control" id="subject" name="subject" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Xabar</label>
+                            <textarea class="form-control" id="message" name="message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">
+                            <i class="fas fa-paper-plane me-2"></i> Yuborish
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <div class="container">
+        <p>© 2025 Muhammadaziz Kadirov | Python Developer</p>
+    </div>
+    <div class="go-top" id="goTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+</footer>
+
+<!-- Scripts -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+    // Scroll animations
+    document.addEventListener('DOMContentLoaded', function() {
+        // Initialize skill bars
+        setTimeout(function() {
+            document.querySelectorAll('.skill-progress').forEach(function(el) {
+                const width = el.getAttribute('data-width');
+                el.style.width = width + '%';
+            });
+        }, 500);
+
+        // Fade-in animations
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('active');
+                }
+            });
+        }, { threshold: 0.1 });
+
+        fadeElements.forEach(element => {
+            observer.observe(element);
+        });
+
+        // Go to top button
+        const goTopBtn = document.getElementById('goTop');
+
+        goTopBtn.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+
+        // Show/hide go to top button
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 300) {
+                goTopBtn.style.opacity = '1';
+            } else {
+                goTopBtn.style.opacity = '0';
+            }
+        });
+
+        // Navbar change on scroll
+        const navbar = document.querySelector('.navbar');
+
+        window.addEventListener('scroll', function() {
+            if (window.scrollY > 50) {
+                navbar.style.padding = '10px 0';
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98) !important';
+            } else {
+                navbar.style.padding = '20px 0';
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95) !important';
+            }
+        });
+
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+
+                const target = document.querySelector(this.getAttribute('href'));
+
+                if (target) {
+                    window.scrollTo({
+                        top: target.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    });
+
+    // Add animated typing effect to header
+    const headerAnimation = () => {
+        const text = "Python / Django Developer";
+        const typingElement = document.querySelector('header p');
+        typingElement.textContent = "";
+
+        let i = 0;
+        const typing = setInterval(() => {
+            if (i < text.length) {
+                typingElement.textContent += text.charAt(i);
+                i++;
+            } else {
+                clearInterval(typing);
+            }
+        }, 100);
+    };
+
+    // Run header animation after initial animation completes
+    setTimeout(headerAnimation, 3000);
+</script>
 </body>
 </html>
