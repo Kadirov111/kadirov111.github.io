@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="uz">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kadirov Muhammadaziz</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: #f4f4f9;
+      color: #333;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 12px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    h1 {
+      font-size: 36px;
+      margin: 0;
+      color: #004080;
+    }
+
+    h2 {
+      border-bottom: 2px solid #004080;
+      padding-bottom: 5px;
+      color: #004080;
+    }
+
+    a {
+      color: #007bff;
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    li {
+      margin: 8px 0;
+    }
+
+    /* Animations */
+    .fade-in {
+      opacity: 0;
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    .fade-in.delay {
+      animation-delay: 0.8s;
+    }
+
+    .slide-up {
+      opacity: 0;
+      transform: translateY(30px);
+      animation: slideUp 1s ease forwards;
+      animation-delay: 1s;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+      }
+    }
+
+    @keyframes slideUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    footer {
+      text-align: center;
+      margin-top: 40px;
+      font-size: 14px;
+      color: #777;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="fade-in">Kadirov Muhammadaziz</h1>
+      <p class="fade-in delay">247-maktab o‘quvchisi | Python Developer (Astrum IT)</p>
+    </header>
+
+    <section class="about slide-up">
+      <h2>Men haqimda</h2>
+      <p>Men Kadirov Muhammadaziz, 247-maktabda o‘qiyman. Hozirda Astrum IT Academy’da Python Developer yo‘nalishida tahsil olyapman. Django, DRF, PostgreSQL, HTML, CSS va boshqa texnologiyalarni o‘rganmoqdaman.</p>
+    </section>
+
+    <section class="project slide-up">
+      <h2>Amaliyot loyiham</h2>
+      <p><a href="https://github.com/Kadirov111/FitLife.git" target="_blank">FitLife GitHub Repository →</a></p>
+    </section>
+
+    <section class="contact slide-up">
+      <h2>Kontaktlar</h2>
+      <ul>
+        <li><strong>Instagram:</strong> @kadirov1_m</li>
+        <li><strong>Telegram:</strong> @kadirov1_m</li>
+        <li><strong>GitHub:</strong> kadirov111</li>
+        <li><strong>Email:</strong> abduvahhobovicmuhammadaziz@gmail.com</li>
+        <li><strong>Telefon:</strong> +998 (77) 036-73-66</li>
+      </ul>
+    </section>
+
+    <footer>
+      &copy; 2025 Kadirov Muhammadaziz. Barcha huquqlar himoyalangan.
+    </footer>
+  </div>
+
+  <script>
+    console.log("Sayt yuklandi - Muhammadazizga omad!");
+  </script>
+</body>
+</html>
